@@ -61,12 +61,17 @@ public class Tic {
         Scanner sc = new Scanner(System.in);
         int[] arr = new int[10];
         int counter = 0;
+        int a = 0;
         while (counter < 9) {
             int turn = counter % 2 + 1;
 
             if (turn == 1) {
                 System.out.print("Player 1's turn. Enter the desired location [1-9] : ");
                 int index = sc.nextInt();
+                if (index < 1 || index > 9) {
+                    System.out.println("Please choose a number between 1 and 9 (both inclusive) only");
+                    continue;
+                }
                 if (arr[index] == 1 || arr[index] == 2) {
                     System.out.println("This location is already occupied. Please choose another location");
                     continue;
@@ -75,6 +80,10 @@ public class Tic {
             } else if (turn == 2) {
                 System.out.print("Player 2's turn. Enter the desired location [1-9] : ");
                 int index = sc.nextInt();
+                if (index < 1 || index > 9) {
+                    System.out.println("Please choose a number between 1 and 9 (both inclusive) only");
+                    continue;
+                }
                 if (arr[index] == 1 || arr[index] == 2) {
                     System.out.println("This location is already occupied. Please choose another location");
                     continue;
@@ -82,7 +91,7 @@ public class Tic {
                 arr[index] = 2;
             }
             printMatrix(arr);
-            int a = anyOneWon(arr);
+            a = anyOneWon(arr);
             if (a == 1) {
                 System.out.println("Player 1 has won!!!");
                 break;
@@ -94,6 +103,9 @@ public class Tic {
             counter++;
 
         }
+        if (a == 0) {
+            System.out.println("It is a tie!!!");
+        }
 
     }
 
@@ -102,10 +114,15 @@ public class Tic {
         int[] arr = new int[10];
         int counter = 0;
         int turn = 1;// 1 for player and 2 for computer;
+        int a = 0;
         while (counter < 9) {
             if (turn == 1) {
-                System.out.print("Player 1's turn. Enter the desired location [1-9] : ");
+                System.out.print("Your turn . Enter the desired location [1-9] : ");
                 int index = sc.nextInt();
+                if (index < 1 || index > 9) {
+                    System.out.println("Please choose a number between 1 and 9 (both inclusive) only");
+                    continue;
+                }
                 if (arr[index] == 1 || arr[index] == 2) {
                     System.out.println("This location is already occupied. Please choose another location");
                     continue;
@@ -119,20 +136,50 @@ public class Tic {
                         break;
                     }
                 }
-                
+                System.out.println("The computer chooses location " + index);
+                arr[index] = 2;
             }
+            printMatrix(arr);
+            a = anyOneWon(arr);
+            if (a == 1) {
+                System.out.println("You win!!!");
+                break;
+            }
+            if (a == 2) {
+                System.out.println("The Computer wins!!!");
+                break;
+            }
+            counter++;
+            turn = (turn + 1) % 2;
+        }
+        if (a == 0) {
+            System.out.println("It is a tie!");
         }
     }
 
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        instructions();
-        int game = sc.nextInt();
-        if (game == 1) {
-            TwoPlayerGame();
-        } else {
-            ComputerGame();
+
+        int playsAgain = 1;
+        while (playsAgain == 1) {
+            instructions();
+            int game = sc.nextInt();
+
+            if (game == 1) {
+                TwoPlayerGame();
+            } else {
+                ComputerGame();
+            }
+            System.out.print("New game [Y/N]? : ");
+            char ch = sc.next().charAt(0);
+            if (ch == 'Y' || ch == 'y') {
+                playsAgain = 1;
+            } else {
+                playsAgain = 0;
+                break;
+            }
         }
+
     }
 
 }
