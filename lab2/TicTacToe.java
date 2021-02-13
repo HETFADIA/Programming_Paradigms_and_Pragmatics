@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Tic {
+public class TicTacToe {
     static void instructions() {
         System.out.println("Welcome to Tic Tac Toe.");
         System.out.println("The board is as follows");
