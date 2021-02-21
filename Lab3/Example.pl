@@ -65,3 +65,31 @@ sub add {
     ($a,$b)=@_;
     print $a+$b;
 }
+
+$v1=10; $v2=30; #v1, v2 global
+$v3=30;
+$v3=add( $v1,$v2 );
+sub add{
+my ($i,$j)=@_;
+    print "inside add sub value of i=$i j=$j\n";
+    print "inside add sub value of globals v1=$v1 v2=$v2 v3=$v3\n";
+    return $i+$j;
+}
+print " Value of globals v1=$v1 v2=$v3\n";
+print " Value of scoped variables v3=$v3\n";
+print " Value of variables inside sub i=$i j=$j\n";
+
+
+for (my $i=0; $i<10; $i++ ) {
+    print "inside for i=$i\n";
+}
+print "outside for i=$i\n";
+
+use strict;
+my $v1=10;
+my $v2=20;
+add ( $v1,$v2 );
+sub add {
+    my ($a, $b)=@_;
+    print $a+$b;
+}
