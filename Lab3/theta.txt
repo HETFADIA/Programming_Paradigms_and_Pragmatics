@@ -1,0 +1,6 @@
+Hi there.
+I am learning perl.
+It is so simple language.
+I like perl.
+It is a programming language.
+practical extraction and report language
