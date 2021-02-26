@@ -21,7 +21,87 @@ sub present{
     }
     return 0;
 }
-
-$character='a';
-print present();
-
+sub hangman1{
+    print "   ______\n";
+    print "  |      |\n";
+    print "  |\n";
+    print "  |\n";
+    print "  |\n";
+    print "  |\n";
+    print "  |\n";
+    print "__|___\n";
+    return "";
+}
+sub hangman2{
+    print "   ______\n";
+    print "  |      |\n";
+    print "  |      o\n";
+    print "  |\n";
+    print "  |\n";
+    print "  |\n";
+    print "  |\n";
+    print "__|___\n";
+    return "";
+}
+sub hangman3{
+    print "   ______\n";
+    print "  |      |\n";
+    print "  |      o\n";
+    print "  |      |\n";
+    print "  |      |\n";
+    print "  |\n";
+    print "  |\n";
+    print "__|___\n";
+    return "";
+}
+sub hangman4{
+    print "   ______\n";
+    print "  |      |\n";
+    print "  |      o\n";
+    print "  |     \\|\n";
+    print "  |      |\n";
+    print "  |\n";
+    print "  |\n";
+    print "__|___\n";
+    return "";
+}
+sub hangman5{
+    print "   ______\n";
+    print "  |      |\n";
+    print "  |      o\n";
+    print "  |     \\|/\n";
+    print "  |      |\n";
+    print "  |\n";
+    print "  |\n";
+    print "__|___\n";
+    return "";
+}
+sub hangman6{
+    print "   ______\n";
+    print "  |      |\n";
+    print "  |      o\n";
+    print "  |     \\|/\n";
+    print "  |      |\n";
+    print "  |     /\n";
+    print "  |\n";
+    print "__|___\n";
+    return "";
+}
+sub hangman7{
+    print "   ______\n";
+    print "  |      |\n";
+    print "  |      o\n";
+    print "  |     \\|/\n";
+    print "  |      |\n";
+    print "  |     / \\\n";
+    print "  |\n";
+    print "__|___\n";
+    return "";
+}
+print hangman1();
+print hangman2();
+print hangman3();
+print hangman4();
+print hangman5();
+print hangman6();
+print hangman7();
