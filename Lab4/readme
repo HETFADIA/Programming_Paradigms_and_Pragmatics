@@ -1,1 +1,28 @@
+README
 
+
+Program name : Hangman.pl
+
+
+How to run my program
+1) perl Hangman.pl
+
+
+The words array contains all the possible words.
+A word will be chosen at random, say real_word which you will have to guess.
+When the program is run the initial position of the hangman will be displayed.
+
+
+Also a hidden array containing character of the true words will be displayed, eg ----(it is hidden array so true word will not be displayed)
+Below it it will display an array of guessed alphabets.
+
+
+You have to guess an alphabet and type it.
+If you guess a string (eg “ram” instead of an alphabet ) the program will consider only the first character i.e. ‘r’.
+If the guessed alphabet was also guessed earlier the program will ask to choose another alphabet.
+Else if you guess a correct character the - will be replaced by the correct character.eg(b---)
+If you guess the incorrect alphabet (alphabet guessed is not present in the word) the position of the hangman will be displayed.
+You will be given 6 chances(correct guess are not counted) to guess the word. After 6 incorrect guesses the hangman will be hanged and you will lose.
+If you guess the correct word you will win.
+The program will ask you if you want to play again.
+Press ‘Y’ or ‘y’ to play again and any other character to quit.
