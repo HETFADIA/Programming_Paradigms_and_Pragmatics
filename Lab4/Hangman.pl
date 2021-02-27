@@ -4,23 +4,14 @@ $size=scalar @words;
 $index=int(rand($size));
 
 $real_word=$words[$index];
+print $real_word;
 $size_of_word=length($real_word);
 
 @hidden_word=();
 for($i=0;$i<$size_of_word;$i++){
     $hidden_word[$i]='-';
 }
-sub present{
-    
-    for($i=0;$i<length($real_word);$i++){
-        
-        if(substr($real_word,$i,1) eq $character){
-            
-            return 1;
-        }
-    }
-    return 0;
-}
+
 sub hangman1{
     print "   ______\n";
     print "  |      |\n";
@@ -98,10 +89,37 @@ sub hangman7{
     print "__|___\n";
     return "";
 }
-print hangman1();
-print hangman2();
-print hangman3();
-print hangman4();
-print hangman5();
-print hangman6();
-print hangman7();
+sub present{
+    my (@list)=@_;
+    
+    foreach(@list){
+        
+        if("$_" eq $character){
+            
+            return 1;
+        }
+    }
+    return 0;
+}
+
+
+
+
+@guesses_so_far=();
+
+
+$chances=6;
+while($chances){
+    print "Here is your word: ",@hidden_word,"\n";
+    print "Guesses so far:","@guesses_so_far","\n";
+    print "Make a guess:";
+    $character=<>;
+    chop($character);
+    if(present(@guesses_so_far)){
+        print "You already guessed $character. Please guess another letter\n";
+    }
+    else{
+        @guesses_so_far[scalar @guesses_so_far]=$character;
+        
+    }
+}
