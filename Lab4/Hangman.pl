@@ -181,6 +181,7 @@ while($play_again eq 'Y' || $play_again eq 'y'){
         print "Make a guess: ";
         $character=<>;
         chop($character);
+        $character=substr($character,0,1);
         if(present(@guesses_so_far)){
             print "You already guessed $character. Please guess another letter\n";
         }
