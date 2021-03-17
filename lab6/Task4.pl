@@ -8,14 +8,12 @@ if(not defined open($fh,"<","micro.txt")){
     die "There is no such file named $micro.txt in the directory.\n";
 }
 $counter=0;
-while ( $line = <$fh> ) {
-    foreach $word (split(' ', $line)) {
-        
-        if($word=~/"\w+"/){
-            print "$&","\n";
-            $counter++;
-        }
+while ( $line = <$fh> ) {       
+    if($line=~/"\w+\s{0,1}\w+"/){
+        print "$&","\n";
+        $counter++;
     }
+    
 }
 print "There are ",$counter;
 close($fh);
