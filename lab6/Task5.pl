@@ -9,7 +9,7 @@ if(not defined open($fh,"<","micro.txt")){
 }
 $counter=0;
 while ( $line = <$fh> ) {
-    foreach $word (split(' ', $line)) {
+    foreach $word (split('\W', $line)) {
         
         if($word=~/^(a)(\w)\g2\w*/i){
             print "$&","\n";
