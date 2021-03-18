@@ -1,5 +1,5 @@
 "i am"
-"hey there"
+"hey there" "i m" "aditya friend"
 "hi"
 "i"
 "am"
@@ -9,3 +9,4 @@
 "Hey there i am using whatsapp"
 "i 
 am"
+"het's cafe"
