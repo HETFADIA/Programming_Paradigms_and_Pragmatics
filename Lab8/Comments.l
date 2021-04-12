@@ -20,7 +20,7 @@ int main()
 {
     extern FILE *yyin, *yyout;
     yyin = fopen("input2.txt", "r");
-    yyout = fopen("output.txt", "w");
+    yyout = fopen("output2.txt", "w");
     yylex();
     // fclose(yyin);
     // fclose(yyout);
