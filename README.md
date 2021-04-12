@@ -16,3 +16,7 @@
 flex Count.l;
 gcc lex.yy.c  -o Count.exe;
 Count.exe
+
+bison -dy hello.y
+gcc  -o hello.exe;
+hello.exe
