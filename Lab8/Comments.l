@@ -1,13 +1,17 @@
 %{
-    // #include<stdio.h>
-    int single_line_comment=0;
-    int multiple_line_comments=0;
-    
+    int active=0;
+    int comments=0;
+    int single=0;
+    int multiple=0;
 %}
-  
+
 %%
-"//".* {single_line_comment++;}
-[/][*][^*]*[*]+([^*/][^*]*[*]+)*[/] {multiple_line_comments++;}
+"//".+ {fprintf(yyout, "");active=1;single++;}
+[\n]   {if(active==1)active=0,fprintf(yyout, "");if(active==2)multiple++,fprintf(yyout, "");if(active==0)fprintf(yyout, "%s", yytext);}
+"/*"   {if(active!=2)active=2,multiple++,fprintf(yyout, "");}
+"*/"   {if(active==2)active=0,fprintf(yyout, "");}
+[^\n]       {if(active==0) fprintf(yyout, "%s", yytext); }
+<<EOF>> yyterminate();
 %%
   
 int yywrap(){}
@@ -15,13 +19,13 @@ int yywrap(){}
 int main()
 {
     extern FILE *yyin, *yyout;
-    yyin = fopen("input.txt", "r");
-    yyout=fopen("output.txt","w");
+    yyin = fopen("input2.txt", "r");
+    yyout = fopen("output.txt", "w");
     yylex();
-    fclose(yyin);
+    // fclose(yyin);
+    // fclose(yyout);
+    printf("\nSingle line comments: %d",single);
+    printf("\nMultiple line comments: %d",multiple);
 
-    
-    printf("Comments: %d\n",single_line_comment);
-    printf("Multiple line comments: %d",multiple_line_comments);
     return 0;
 }
