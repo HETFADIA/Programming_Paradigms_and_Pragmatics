@@ -13,6 +13,6 @@
 ##### clang -fsyntax-only -Xclang -dump-tokens practice.c in terminal
 
 
-flex count.l
-gcc lex.yy.c  -o count.exe 
+flex count.l;
+gcc lex.yy.c  -o count.exe;
 count.exe
