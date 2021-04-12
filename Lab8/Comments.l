@@ -7,10 +7,10 @@
 
 %%
 "//".+ {fprintf(yyout, "");active=1;single++;}
-[\n]   {if(active==1)active=0,fprintf(yyout, "");if(active==2)multiple++,fprintf(yyout, "");if(active==0)fprintf(yyout, "%s", yytext);}
+[\n]   {if(active==2)multiple++,fprintf(yyout, "");if(active==0)fprintf(yyout, "%s", yytext);if(active==1)active=0,fprintf(yyout, "");}
 "/*"   {if(active!=2)active=2,multiple++,fprintf(yyout, "");}
-"*/"   {if(active==2)active=0,fprintf(yyout, "");}
-[^\n]       {if(active==0) fprintf(yyout, "%s", yytext); }
+"*/"   {if(active==2)active=1,fprintf(yyout, "");}
+[^\n]  {if(active==0) fprintf(yyout, "%s", yytext); }
 <<EOF>> yyterminate();
 %%
   
