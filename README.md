@@ -29,12 +29,12 @@ a.exe
 To run bison file
 
 Two ways:
+1)
 flex ab.l
 bison -dy ab.y
 gcc lex.yy.c y.tab.c -w
 a.exe
-
-
+2)
 flex ab.l
 bison -dy ab.y
 gcc lex.yy.c  -o ab.exe
