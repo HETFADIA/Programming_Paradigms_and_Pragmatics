@@ -1,14 +1,18 @@
 %{
-    // #include<stdio.h>
-    int chars=0,words=0,spaces=0,lines=0;
+    #include<stdio.h>
+    int chars,words,spaces,lines;
+    chars=0;
+    spaces=0;
+    words=0;
+    lines=0;
     
 %}
   
 %%
-
-[ ]+ {chars += yyleng; spaces += yyleng;}
 [\n] {lines++;}
-([a-zA-Z0-9])+ {words++; chars += yyleng;}
+[ ]+ {chars += yyleng; spaces += yyleng;}
+([a-zA-Z0-9_])+ {words++; chars += yyleng;}
+. {chars++;}
 <<EOF>> {lines++;}yyterminate();
 %%
   
@@ -16,14 +20,14 @@ int yywrap(){}
    
 int main()
 {
-    extern FILE *yyin, *yyout;
+    
     yyin = fopen("input.txt", "r");
     yylex();
     fclose(yyin);
-
-    printf("\nCharacters: %d\n",chars);
-    printf("Words: %d\n",words);
+    // we print the output
     printf("Spaces: %d\n",spaces);
+    printf("Characters: %d\n",chars);
+    printf("Words: %d\n",words);
     printf("Lines: %d\n",lines);
 
     return 0;
