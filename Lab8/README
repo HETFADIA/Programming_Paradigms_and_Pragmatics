@@ -1,0 +1,54 @@
+Commands to execute Count.l file (in windows):
+
+Two ways:
+1)
+flex Count.l
+gcc lex.yy.c  -o Count.exe
+Count.exe
+2)
+flex Count.l
+gcc lex.yy.c  -w
+a.exe
+
+
+
+Commands to execute .y files:
+Two ways:
+1)
+flex ab.l
+bison -dy ab.y
+gcc lex.yy.c y.tab.c -w
+a.exe
+2)
+flex ab.l
+bison -dy ab.y
+gcc lex.yy.c  -o ab.exe
+ab.exe
+
+
+Files:
+1)
+count.l
+Here an input from file ‘input.txt’ is given and the output is generated in output.txt
+
+2)
+Comments.l
+Here the input is given in ‘input2.txt’.
+It counts the number of comment lines (both single line comments as well as multiple line comments are counted)
+The comments are removed and the resulting program is written in ‘output2.txt’
+
+3)
+ab.y
+Here I have recognised a^nb where n>=10 so aaaaaaaaaab aaaaaaaaaaaaaaaaab are valid while 
+ab
+bbaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaabbbbbbb
+are invalid
+
+4)
+calc.l
+
+5)
+calc.y
+
+

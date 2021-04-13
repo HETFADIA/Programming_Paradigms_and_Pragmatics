@@ -3,6 +3,7 @@
     int comments=0;
     int single=0;
     int multiple=0;
+    
 %}
 
 %%
