@@ -1,36 +1,31 @@
 %{
-    char id[1000];
-    int count=0;
-    char op[1000];
-    int bruh=0;
+    int add=0;
+    int sub=0;
+    int mul=0;
+    int divi=0;
 %}
 
 %%
-[+] {op[count++]='+';printf(" ");}
-[-] {op[count++]='-';printf(" ");}
-[*] {op[count++]='*';printf(" ");}
-[/] {op[count++]='/';printf(" ");}
-[=] {op[count++]='=';printf(" ");}
-[0-9A-Za-z]+ {if(bruh==0){printf("Identifiers are: ");bruh=1;}{printf("%s",yytext);}}
-"\n"  yyterminate();
+[+] {add++;}
+[-] {sub++;}
+[*] {mul++;}
+[/] {divi++;}
 %%
-
+  
 int yywrap(){}
-
+   
 int main()
 {
-    for(int i=0;i<1000;i++)
-        id[i]='\0';
-    for(int i=0;i<1000;i++)
-        op[i]='\0';
+    extern FILE *yyin, *yyout;
+    yyin = fopen("input3.txt", "r");
+    yyout = fopen("output3.txt", "w");
     yylex();
     // fclose(yyin);
     // fclose(yyout);
-    printf("\nOperators are:");
-    for(int i=0;i<1000;i++){
-        if(op[i]=='\0')
-            break;
-        printf(" %c",op[i]);
-    }
+    printf("\nAddition operators are: %d",add);
+    printf("\nSubtraction operators are: %d",sub);
+    printf("\nMultiplication operators are: %d",mul);
+    printf("\nDivision operators are: %d",divi);
+
     return 0;
 }
