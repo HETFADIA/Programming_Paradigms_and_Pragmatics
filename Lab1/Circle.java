@@ -1,3 +1,4 @@
+package Lab1;
 public class Circle {
     public static final double DEFAULT_RADIUS = 8.8;
     public static final String DEFAULT_COLOR = "red";

@@ -1,3 +1,4 @@
+package Lab1;
 public class InchesToFeet45 {
     public static void main(String[] args) {
         int no = 45;

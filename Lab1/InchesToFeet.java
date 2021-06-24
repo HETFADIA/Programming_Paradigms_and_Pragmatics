@@ -1,3 +1,4 @@
+package Lab1;
 import java.util.Scanner;
 public class InchesToFeet {
   public static void main(String[] args) {
